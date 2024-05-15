@@ -21,7 +21,7 @@ const AllTransactions = () => {
                   className="transactionIcon"
                 />
               </div>
-              <Flex justify="space-around" align="center">
+              <Flex justify="space-around" align="center" className="TransactionBox">
                 <Flex vertical justify="start">
                   <span className="transactionTitle">Drinks</span>
                   <span className="transactionDescription">some Description</span>
@@ -49,6 +49,7 @@ const AllTransactions = () => {
               </Flex>
             </Card>
           </Card>
+          
         </Flex>
       </div>
     </Flex>

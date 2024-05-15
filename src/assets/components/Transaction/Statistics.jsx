@@ -6,10 +6,10 @@ const Statistics = () => {
   return (
    <div className='statistics'>
      <Card>
-            <Typography.Title level={2}>Statitics</Typography.Title>
+            <Typography.Title level={2}>statistics</Typography.Title>
             <Card>
               <Flex>
-                <div className="box"></div>
+                <div className="box">asda</div>
               </Flex>
             </Card>
           </Card>

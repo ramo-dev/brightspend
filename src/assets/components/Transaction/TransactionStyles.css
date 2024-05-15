@@ -1,14 +1,15 @@
 .Transaction {
-  transition: 1s ease-in-out;
+  transition: .3s ease-in-out;
   /* max-width: 500px; */
   z-index: 4;
   display: flex;
   flex-wrap: wrap;
   height: max-content;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 1rem;
 }
 .newTransactionBtn {
-  position: sticky;
+  position: fixed;
   width: 50px !important;
   height: 50px !important;
   transition: .3s ease-in-out !important;
@@ -30,11 +31,12 @@
 }
 .TransacrionContainer {
   backdrop-filter: blur(10px);
-  height: 90%;
-  top: 2%;
+  height: max-content;
+  top: 10%;
+  left: 1%;
   position: absolute;
   display: flex;
-  max-width: 550px;
+  max-width: 500px;
   width: 92%;
 }
 .card {
@@ -101,6 +103,9 @@
   background-color: grey;
   /* padding: 0.3rem 0rem 0.3rem 0.3rem; */
 }
+.TransactionBox{
+    width: -webkit-fill-available
+}
 .transactionIcon {
   border-radius: 10px;
   width: 100%;
@@ -112,9 +117,13 @@
 .transactionPrice {
 }
 
-@media screen and (max-width: 1150px) {
+
+
+@media screen and (max-width: 1280px) {
   .Transaction {
     display: block;
+    padding:  0 10%;
+    padding: 0;
   }
   .AllTransactions {
     width: 100%;
@@ -138,5 +147,12 @@
     width: 100%;
   }
   .transactionPrice {
+    color: var(--success);
   }
+}
+
+@media screen and (min-width: 1380px){
+    .Transaction {
+        padding:  0 3%;
+      }
 }

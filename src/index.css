@@ -2,11 +2,12 @@
 :root {
  --primary : #000;
  --color : #000;
+ --accent : #f0f0f0;
  --background : #f7f7f7;
  --borderRadius: 10px;
  --border:1.5px solid rgba(128, 128, 128, 0.219);
  --success : #EDFDE5;
- --error: tomato;
+ --error: rgb(255, 122, 98);
  --font : "Poppins", sans-serif;
 }
 

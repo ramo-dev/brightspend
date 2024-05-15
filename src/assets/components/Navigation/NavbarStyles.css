@@ -1,9 +1,16 @@
 .Navbar {
-  padding: 0.8rem 0 0 0;
+  padding: 0.8rem .8rem 0 .8rem;
   align-items: end;
-  background: var(--success);
+  background: var(--accent);
+  position: fixed;
+  z-index: 3;
+  width: 100%;
+  border-bottom:2px solid rgba(128, 128, 128, 0.158);
 }
 .logo{
-    font-size: 1.6rem;
+    scale: 1.3;
     font-weight: bold;
+}
+.Navbar *{
+    font-size: 1rem;
 }
