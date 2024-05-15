@@ -1,0 +1,141 @@
+.Transaction {
+  transition: 1s ease-in-out;
+  /* max-width: 500px; */
+  z-index: 4;
+  display: flex;
+  flex-wrap: wrap;
+  height: max-content;
+  justify-content: space-between;
+}
+.newTransactionBtn {
+  position: sticky;
+  width: 45px !important;
+  transition: 1s ease-in-out !important;
+  bottom: 3%;
+  scale: 1.15;
+  z-index: 2 !important;
+  &:hover {
+    scale: 1;
+  }
+}
+.newTransactionBtn svg {
+  scale: 1.6;
+}
+.closeNewTransBtn {
+  scale: 1.6;
+  &:hover {
+    scale: 1.8;
+  }
+}
+.TransacrionContainer {
+  backdrop-filter: blur(10px);
+  height: 90%;
+  top: 2%;
+  position: absolute;
+  display: flex;
+  max-width: 550px;
+  width: 92%;
+}
+.card {
+  /* box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.342); */
+  border: var(--border) !important;
+  width: 100%;
+  text-align: center;
+}
+.costInput {
+  /* text-align: center; */
+  width: 100%;
+  display: flex;
+  height: 100%;
+  &:focus {
+    border: 1px solid var(--border) !important;
+  }
+}
+.costInput * {
+  height: 42px;
+}
+
+.Cost {
+  font-size: 3.5rem;
+  font-weight: 600;
+  justify-self: center;
+}
+.datePicker {
+  width: 100%;
+  height: 45px;
+  border: var(--border) !important;
+  &:focus {
+    border: none !important;
+  }
+}
+.datePicker .anticon-calendar {
+  color: black;
+}
+.SelectCategory {
+  padding: 0.2rem;
+  height: 40px;
+}
+
+.description {
+  height: 50px;
+}
+.type {
+  width: 100% !important;
+  text-align: start;
+  height: 50px;
+}
+
+/* AllTransactions */
+
+.AllTransactions {
+  width: 500px;
+}
+
+.AllTransactions .box {
+  width: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: grey;
+  /* padding: 0.3rem 0rem 0.3rem 0.3rem; */
+}
+.transactionIcon {
+  border-radius: 10px;
+  width: 100%;
+}
+.transactionTitle {
+  font-weight: 600;
+}
+
+.transactionPrice {
+}
+
+@media screen and (max-width: 1200px) {
+  .Transaction {
+    display: block;
+  }
+  .AllTransactions {
+    width: 100%;
+  }
+
+  .AllTransactions .box {
+    width: 30%;
+    max-width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: grey;
+  }
+  .transactionTitle {
+    font-weight: 600;
+  }
+  .transactionIcon {
+    border-radius: 10px;
+    padding: 0.6rem;
+    width: 100%;
+  }
+  .transactionPrice {
+  }
+}

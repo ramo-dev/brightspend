@@ -1,0 +1,10 @@
+.statistics{
+    width: 60%;
+}
+
+@media screen and (max-width : 1200px) {
+    .statistics{
+        width: 100%;
+        margin: 0 0 1rem 0;
+    }
+}
