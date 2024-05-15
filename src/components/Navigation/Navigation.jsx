@@ -1,14 +1,15 @@
 import React from 'react';
 import { Menu } from 'antd';
-import { UserOutlined, BellOutlined, MessageOutlined, MailOutlined } from '@ant-design/icons';
-import "./NavbarStyles.css"
+import { UserOutlined, BellOutlined, MessageOutlined } from '@ant-design/icons';
+import "./NavbarStyles.css";
+import Logo from "../../assets/intelispend-favicon-black.png";
 
 const { SubMenu } = Menu;
 
 const Navbar = () => {
   return (
     <Menu mode="horizontal" className='Navbar'>
-      <Menu.Item key="logo" className='logo'>IS</Menu.Item>
+      <Menu.Item key="logo" className='logo'><img src={Logo} alt="" /></Menu.Item>
       {/* <Menu.Item key="mail" icon={<MailOutlined />} style={{ marginLeft: 'auto' }}>
         Settings
       </Menu.Item> */}

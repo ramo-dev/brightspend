@@ -1,0 +1,47 @@
+.HomeNavbar{
+    background: inherit;
+    height: 60px;
+    align-items: center ;
+    padding: .4rem 1.4rem;
+    font-size: 1rem;
+}
+.HomeLogo{
+    height: 100% !important;
+}
+.HomeNavbar *{
+    scale :1.06
+}
+.HomeLogin{
+    margin-left: auto;
+}
+.HomeLogin .btn{
+    width: 120px !important;
+    height: 40px;
+    padding: .5rem 0 1rem 0!important;
+    filter: invert();
+    border: 1px solid var(--white) !important;
+}
+.Home{
+    display: flex;
+    height: 70vh;
+    align-items: center;
+    padding: 0 10%;
+    justify-content: center;
+    text-align: center;
+    
+}
+.HomeTitle{
+    font-family: var(--font) !important;
+    font-size: 3rem !important;
+    white-space: nowrap;
+}
+.HomeText{
+    font-family: var(--font) !important;
+    font-size: 1.2rem;
+}
+
+@media screen and (max-width : 800px) {
+    .HomeNavbar{
+        padding: 0 .7rem;
+    }
+}

@@ -40,10 +40,12 @@
   width: 92%;
 }
 .card {
-  /* box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.342); */
-  border: var(--border) !important;
+  box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.205);
+  /* border: var(--border) !important; */
+  /* border: 2px solid #80808025; */
   width: 100%;
   text-align: center;
+  /* background-color: #cbdcf5d3; */
 }
 .costInput {
   /* text-align: center; */
@@ -129,6 +131,13 @@
     width: 100%;
   }
 
+  .TransacrionContainer{
+    left : 4%;
+    height: 100%;
+  }
+  .card{
+    /* background-color: rgba(226, 226, 226, 0.603); */
+  }
   .AllTransactions .box {
     width: 30%;
     max-width: 70px;

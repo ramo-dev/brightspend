@@ -9,6 +9,9 @@
  --success : #EDFDE5;
  --error: rgb(255, 122, 98);
  --font : "Poppins", sans-serif;
+ --white :#FFffff;
+ --text:#1A1B1B;
+ --secondary: #CFCFCF;
 }
 
 *{

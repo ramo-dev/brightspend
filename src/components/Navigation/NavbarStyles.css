@@ -1,0 +1,23 @@
+.Navbar {
+  padding: 0.4rem 0.8rem 0 0.8rem;
+  align-items: end;
+  /* background: var(--accent);
+   */
+   background-color: rgba(226, 226, 226, 0.603);
+   backdrop-filter: blur(10px);
+  position: fixed;
+  z-index: 3;
+  width: 100%;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.158);
+  align-items: baseline;
+}
+.logo {
+  align-self: baseline;
+}
+.logo img {
+  width: 35px !important;
+  margin-bottom: -0.8rem;
+}
+.Navbar * {
+  font-size: 1rem;
+}
