@@ -25,7 +25,7 @@ const Home = () => {
       <section className="Home">
         <Flex vertical gap="3rem">
         <Typography.Title className="HomeTitle">
-        IntelliSpend: 
+        InteliSpend: 
         </Typography.Title>
         <Typography.Text className="HomeText">
         Optimizing Your Financial <br />Management.
