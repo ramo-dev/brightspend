@@ -112,7 +112,7 @@
 .transactionPrice {
 }
 
-@media screen and (max-width: 1350px) {
+@media screen and (max-width: 1150px) {
   .Transaction {
     display: block;
   }
