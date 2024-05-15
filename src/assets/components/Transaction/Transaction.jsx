@@ -57,6 +57,7 @@ e.preventDefault()
   // }
 
   return (
+    <>
     <section className="Transaction">
       <Toaster richColors position="top-right"/>
       <Statistics/>
@@ -132,15 +133,17 @@ e.preventDefault()
       ) : (
         ""
       )}
-      {/* <Tooltip title="New Transaction"> */}
-       {!openPopup ?  <button
-          className="btn newTransactionBtn"
-          onClick={handleNewTransactionPopup}
-        >
-          {loading ? <LoadingOutlined /> : <EditOutlined />}
-        </button> : ""}
-      {/* </Tooltip> */}
+      
+       
     </section>
+    {!openPopup ?  <button
+      className="btn newTransactionBtn"
+      onClick={handleNewTransactionPopup}
+    >
+      {loading ? <LoadingOutlined /> : <EditOutlined />}
+    </button> : ""}
+    </>
+  
   );
 };
 

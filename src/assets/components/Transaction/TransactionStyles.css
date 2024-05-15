@@ -9,8 +9,9 @@
 }
 .newTransactionBtn {
   position: sticky;
-  width: 45px !important;
-  transition: 1s ease-in-out !important;
+  width: 50px !important;
+  height: 50px !important;
+  transition: .3s ease-in-out !important;
   bottom: 3%;
   scale: 1.15;
   z-index: 2 !important;
