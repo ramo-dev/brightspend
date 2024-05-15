@@ -2,7 +2,7 @@
     background: inherit;
     height: 60px;
     align-items: center ;
-    padding: .4rem 1.4rem;
+    padding: .4rem 1.4rem .6rem 1.4rem;
     font-size: 1rem;
 }
 .HomeLogo{
@@ -15,9 +15,9 @@
     margin-left: auto;
 }
 .HomeLogin .btn{
-    width: 120px !important;
-    height: 40px;
-    padding: .5rem 0 1rem 0!important;
+    width: 100px !important;
+    height: 35px;
+    padding: .35rem 0 1rem 0!important;
     filter: invert();
     border: 1px solid var(--white) !important;
 }
