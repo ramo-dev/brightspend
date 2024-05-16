@@ -1,5 +1,4 @@
 import { Card, Flex, Typography } from 'antd'
-import React from 'react';
 import "./StatisticsStyles.css"
 
 const Statistics = () => {

@@ -4,19 +4,41 @@ import {LoadingOutlined,UserOutlined, LockOutlined, MailOutlined} from "@ant-des
 import GoogleLogo from "../../assets/googleLogo.png"
 import "./RegisterStyles.css";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import {  useState } from "react";
 import {Toaster, toast} from "sonner";
 import BackButton from "../Ui/Back";
+import { account } from "../../firebase/Config";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 
 const RegisterComponent = () => {
+
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [username, setName] = useState("");
   const [confPass, setConfPass] = useState("");
   const [match, setMatch] = useState(true); // Initially assuming passwords match
   const [isLoading, setIsLoading] = useState(null);
+ 
 
+  // Function to Register User using their Email and Password
+  async function RegisterWithEmailAndPass() {
+    try {
+      await createUserWithEmailAndPassword(account, email, password);
+      // If the execution reaches here, registration was successful else you fucked Up,Lmao
+      toast.success("Registration Successful");
+      setIsLoading(false);
+    } catch (err) {
+      if (err.code === "auth/email-already-in-use") {
+        toast.error("The email address is already in use.");
+      } else {
+        toast.error("An error occurred. Please try again later.");
+        // toast.error(err)
+      }
+      setIsLoading(false);
+    }
+  }
+  
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -33,8 +55,7 @@ const RegisterComponent = () => {
       return;
     }
     else{
-      toast.success("Yayyy");
-      setIsLoading(false);
+      RegisterWithEmailAndPass()
     }
     // Passwords match, you can proceed with your registration logic here
   }
@@ -50,7 +71,7 @@ const RegisterComponent = () => {
   return (
     <section className="RegisterComponent" direction="row">
       <BackButton/>
-      <Toaster  position="top-right"/>
+      <Toaster  position="top-right" richColors/>
       {/* <img src={RegisterImage} alt="" className="RegisterWallpaper" /> */}
       <div className="RegisterForm">
         <Link to="/">
@@ -102,7 +123,9 @@ const RegisterComponent = () => {
           </div>
           <button type="submit" className="btn">{isLoading ? <LoadingOutlined /> : "Register"}</button>
           <small style={{alignSelf : "center", color : "grey"}}>or</small>
-          <button onClick={() => alert("you Clicked")} className="btn GoogleRegister">{isLoading ? <LoadingOutlined/> : <><img src={GoogleLogo} alt=""/>oogle</>}</button>
+          <button onClick={() => alert("you Clicked")} 
+          
+          className="btn GoogleRegister">{isLoading ? <LoadingOutlined/> : <><img src={GoogleLogo} alt=""/>oogle</>}</button>
         </form>
         <small className="linkAccReg">Have an Account? <Link to="/login">Login</Link></small>
       </div>

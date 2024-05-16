@@ -1,14 +1,10 @@
 import {
-  Button,
   Card,
   DatePicker,
   Flex,
   Input,
-  InputNumber,
   Segmented,
   Select,
-  Tooltip,
-  Typography,
 } from "antd";
 import "./TransactionStyles.css";
 import {
@@ -17,10 +13,14 @@ import {
   LoadingOutlined,
   ProfileOutlined,
 } from "@ant-design/icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Toaster, toast } from "sonner";
 import AllTransactions from "./AllTransactions";
 import Statistics from "./Statistics";
+import moment from 'moment';
+import { account } from "../../firebase/Config";
+import { useNavigate } from "react-router-dom";
+
 
 const Transaction = () => {
   const [openPopup, setOpenPopup] = useState(false);
@@ -52,9 +52,7 @@ e.preventDefault()
     
   }
 
-  // function getCurrentDate(){
-  //   get
-  // }
+  const date = new Date();
 
   return (
     <>
@@ -74,7 +72,7 @@ e.preventDefault()
             <br />
             <form action="" onSubmit={addTransaction}>
             <Flex vertical gap="1rem" justify="flex-end">
-              <DatePicker className="datePicker" />
+            <DatePicker className="datePicker" defaultValue={moment()} />
               <Input 
                 min={1}
                 placeholder="Enter Amount"

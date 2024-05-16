@@ -1,10 +1,10 @@
-import React from "react";
+// import React from "react";
 import { Card, Flex, Typography } from "antd";
-import { useState } from "react";
+// import { useState } from "react";
 import "./TransactionStyles.css";
 
 const AllTransactions = () => {
-  const [transactions, setTransaction] = useState([]);
+  // const [transactions, setTransaction] = useState([]);
 
   return (
     <Flex>
