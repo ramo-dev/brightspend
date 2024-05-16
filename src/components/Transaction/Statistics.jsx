@@ -1,14 +1,14 @@
-import { Card, Flex, Typography } from 'antd'
+import { Card, Empty, Flex, Typography } from 'antd'
 import "./StatisticsStyles.css"
 
 const Statistics = () => {
   return (
    <div className='statistics'>
      <Card>
-            <Typography.Title level={2}>statistics</Typography.Title>
+            <Typography.Title level={2}>Statistics</Typography.Title>
             <Card>
-              <Flex>
-                <div className="box">asda</div>
+              <Flex justify='center'>
+              <Empty />
               </Flex>
             </Card>
           </Card>

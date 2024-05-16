@@ -6,7 +6,7 @@
    background-color: rgba(226, 226, 226, 0.603);
    backdrop-filter: blur(10px);
   position: fixed;
-  z-index: 3;
+  z-index: 15;
   width: 100%;
   border-bottom: 2px solid rgba(128, 128, 128, 0.158);
   align-items: baseline;

@@ -1,10 +1,17 @@
 // import React from "react";
-import { Card, Flex, Typography } from "antd";
+import { Card, Empty, Flex, Typography } from "antd";
 // import { useState } from "react";
 import "./TransactionStyles.css";
+import Meta from "antd/es/card/Meta";
+import { transactionsDummy } from "./Dummydata";
+import { useEffect, useState } from "react";
 
 const AllTransactions = () => {
-  // const [transactions, setTransaction] = useState([]);
+  const [transactions, setTransaction] = useState([]);
+
+  useEffect(() => {
+    setTransaction(transactionsDummy);
+  });
 
   return (
     <Flex>
@@ -12,44 +19,44 @@ const AllTransactions = () => {
         <Flex vertical gap="1rem">
           <Card>
             <Typography.Title level={2}>Today</Typography.Title>
+            <Flex vertical gap="1rem">
+              {transactions.map((item) => (
+                <Card hoverable key={item}>
+                  <Flex gap="1rem">
+                    <span className="emojiTransac">{item.emoji}</span>
 
-            <Flex gap="1rem" justify="start">
-              <div className="box">
-                <img
-                  src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
-                  alt="transactionIcon"
-                  className="transactionIcon"
-                />
-              </div>
-              <Flex justify="space-around" align="center" className="TransactionBox">
-                <Flex vertical justify="start">
-                  <span className="transactionTitle">Drinks</span>
-                  <span className="transactionDescription">some Description</span>
-                </Flex>
-                <Flex vertical justify="end" style={{textAlign : "end", marginLeft: 'auto'}}>
-                  <span className="transactionTitle">-300/Ksh</span>
-                  <span className="transactionTime">10:00 Am</span>
-                </Flex>
-              </Flex>
+                    <Flex style={{ width: "100%" }} justify="space-between">
+                      <Flex vertical>
+                        <Meta avatar={""} title={item.title}/>
+                        <p>{item.description}</p>
+                      </Flex>
+
+                      <Meta avatar={""} title={item.amount} description={item.time} ellipsis={true}/>
+                    </Flex>
+                  </Flex>
+                </Card>
+              ))}
             </Flex>
           </Card>
+
           <Card>
             <Typography.Title level={2}>Yesterday</Typography.Title>
             <Card>
-              <Flex>
-                <div className="box"></div>
+              <Flex justify="center">
+                {/* <div className="box"></div> */}
+                <Empty />
               </Flex>
             </Card>
           </Card>
           <Card>
             <Typography.Title level={2}>Earlier</Typography.Title>
             <Card>
-              <Flex>
-                <div className="box"></div>
+              <Flex justify="center">
+                {/* <div className="box"></div> */}
+                <Empty />
               </Flex>
             </Card>
           </Card>
-          
         </Flex>
       </div>
     </Flex>

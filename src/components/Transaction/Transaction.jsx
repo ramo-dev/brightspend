@@ -34,6 +34,7 @@ const Transaction = () => {
   const [transLoader, setTransLoader] = useState(false);
   const [showCategory, setShowCategory] = useState(false);
   const [autoPopup, setAutoPopup] = useState(true);
+  const [writeTransBtn, setWriteTrans] = useState(false)
 
   function handleNewTransactionPopup() {
     setLoading(true);
@@ -63,10 +64,11 @@ const Transaction = () => {
 
  useEffect(()=>{
   setAutoPopup(openPopup);
+  setAutoPopup(!showCategory)
   setTimeout(() => {
     setAutoPopup(false);
   }, 2000);
- },[openPopup])
+ },[openPopup, showCategory])
   
 
   return (
@@ -74,6 +76,7 @@ const Transaction = () => {
       <section className="Transaction">
         <Toaster richColors position="top-right" />
         <Statistics />
+        <span className="statTransactionRule"></span>
         <AllTransactions />
 
         {/* Transaction Popuup */}
@@ -175,12 +178,20 @@ const Transaction = () => {
         )}
       </section>
       {!openPopup ? (
+        <Tooltip open={writeTransBtn} title="Create Transaction">
         <button
           className="btn newTransactionBtn"
-          onClick={handleNewTransactionPopup}
+          onClick={() => {
+            handleNewTransactionPopup();
+            setWriteTrans(false);
+          }}
+          onMouseOver={() => setWriteTrans(true)}
+          onMouseLeave={() => setWriteTrans(false)}
         >
           {loading ? <LoadingOutlined /> : <EditOutlined />}
         </button>
+      </Tooltip>
+      
       ) : (
         ""
       )}
