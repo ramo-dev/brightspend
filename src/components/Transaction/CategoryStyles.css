@@ -1,0 +1,17 @@
+.CategoryPopPup{
+    position: absolute;
+    top: 10%;
+    left: 110%;
+    height: 60vh;
+    z-index: 3;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.699);
+}
+
+@media screen and (max-width : 800px) {
+    .CategoryPopPup{
+        position: absolute;
+        top: 2%;
+        left: -1%;
+    }
+}

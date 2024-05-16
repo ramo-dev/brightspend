@@ -38,9 +38,14 @@
   display: flex;
   max-width: 500px;
   width: 92%;
+  transition:  1s ease-in-out;
+  z-index: 7;
+}
+.openTransactionContainer{
+  transform: translateX(-300px);
 }
 .card {
-  box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.205);
+  box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.699);
   /* border: var(--border) !important; */
   /* border: 2px solid #80808025; */
   width: 100%;
@@ -89,6 +94,30 @@
   text-align: start;
   height: 50px;
 }
+.AddCategoryBtn{
+  background: inherit;
+  width: 45px;
+  height: 40px;
+  margin: auto 0rem auto 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  border: var(--border);
+  transition: .3s ease-in-out;
+  cursor: pointer;
+  &:hover{
+    background: var(--color);
+    color: var(--white);
+  }
+}
+.AddCategoryBtn *{
+  font-size: 1.3rem;
+}
+.PopOverAddCategory{
+  /* height: 100vh; */
+}
+
 
 /* AllTransactions */
 

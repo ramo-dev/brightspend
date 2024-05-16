@@ -3,7 +3,8 @@
     position: fixed;
     justify-self: flex-start;
     /* display: flex; */
-    left : 2%
+    left : 2%;
+    background-color: #e7e7e7c4 !important;
     /* top: 0; */
 }
 
