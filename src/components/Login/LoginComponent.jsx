@@ -14,14 +14,14 @@ const LoginComponent = () => {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(null);
   const [logginIn, setLogginIn] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   async function handleLoginWithEmailandPassword() {
     try {
       await signInWithEmailAndPassword(account, email, password);
       toast.success("Login Successful");
       setLogginIn(false);
-      navigate("/dashboard")
+      navigate("/dashboard");
     } catch (err) {
       toast.error("Invalid Email or password.");
       setLogginIn(false);
@@ -47,7 +47,16 @@ const LoginComponent = () => {
     event.target.parentElement.style.borderColor = "var(--secondary)";
   }
 
-
+  async function handleSignInWithGoogle() {
+    setIsLoading(true);
+    try {
+      await signInWithGoogle();
+      setIsLoading(false);
+    } catch (err) {
+      toast.error(err);
+      setIsLoading(false);
+    }
+  }
 
   return (
     <section className="LoginComponent" direction="row">
@@ -79,21 +88,17 @@ const LoginComponent = () => {
             {logginIn ? <LoadingOutlined /> : "Login"}
           </button>
           <small style={{ alignSelf: "center", color: "grey" }}>or</small>
-         
         </form>
-        <button
-            onClick={signInWithGoogle}
-            className="btn GoogleRegister"
-          >
-            {isLoading ? (
-              <LoadingOutlined />
-            ) : (
-              <>
-                <img src={GoogleLogo} alt="" />
-                oogle
-              </>
-            )}
-          </button>
+        <button onClick={handleSignInWithGoogle} className="btn GoogleRegister">
+          {isLoading ? (
+            <LoadingOutlined />
+          ) : (
+            <>
+              <img src={GoogleLogo} alt="" />
+              oogle
+            </>
+          )}
+        </button>
         <small className="linkAccReg">
           Dont have an Account? <Link to="/register">Register</Link>
         </small>

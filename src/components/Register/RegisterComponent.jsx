@@ -22,15 +22,17 @@ const RegisterComponent = () => {
   const [username, setName] = useState("");
   const [confPass, setConfPass] = useState("");
   const [match, setMatch] = useState(true); // Initially assuming passwords match
-  const [isLoading, setIsLoading] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [signingIn, setSigningIn] = useState(false);
 
   // Function to Register User using their Email and Password
   async function RegisterWithEmailAndPass() {
+    setSigningIn(true);
     try {
       await createUserWithEmailAndPassword(account, email, password);
       // If the execution reaches here, registration was successful else you fucked Up,Lmao
       toast.success("Registration Successful");
-      setIsLoading(false);
+      setSigningIn(false);
     } catch (err) {
       if (err.code === "auth/email-already-in-use") {
         toast.error("The email address is already in use.");
@@ -38,25 +40,25 @@ const RegisterComponent = () => {
         toast.error("An error occurred. Please try again later.");
         // toast.error(err)
       }
-      setIsLoading(false);
+      setSigningIn(false);
     }
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    setIsLoading(true);
+    setSigningIn(true);
     if (
       email.trim() === "" ||
       password.trim() === "" ||
       username.trim() === ""
     ) {
       alert("Please fill in the required Fields");
-      setIsLoading(false);
+      setSigningIn(false);
       return;
     }
     if (password !== confPass) {
       setMatch(false);
-      setIsLoading(false);
+      setSigningIn(false);
       return;
     } else {
       RegisterWithEmailAndPass();
@@ -70,6 +72,18 @@ const RegisterComponent = () => {
 
   function handleBlur(event) {
     event.target.parentElement.style.borderColor = "var(--secondary)";
+  }
+
+
+  async function handleSignInWithGoogle() {
+    setIsLoading(true);
+    try {
+        await signInWithGoogle(); 
+        setIsLoading(false); 
+    } catch (err) {
+        toast.error(err); 
+        setIsLoading(false); 
+}
   }
 
   return (
@@ -134,13 +148,13 @@ const RegisterComponent = () => {
             />
           </div>
           <button type="submit" className="btn">
-            {isLoading ? <LoadingOutlined /> : "Register"}
+            {signingIn ? <LoadingOutlined /> : "Register"}
           </button>
           <small style={{ alignSelf: "center", color: "grey" }}>or</small>
          
         </form>
         <button
-            onClick={signInWithGoogle}
+            onClick={handleSignInWithGoogle}
             className="btn GoogleRegister"
           >
             {isLoading ? (
