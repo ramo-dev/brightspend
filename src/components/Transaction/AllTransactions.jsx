@@ -27,11 +27,14 @@ const AllTransactions = () => {
 
                     <Flex style={{ width: "100%" }} justify="space-between">
                       <Flex vertical>
-                        <Meta avatar={""} title={item.title}/>
+                        <Meta avatar={""} title={item.category}/>
                         <p>{item.description}</p>
                       </Flex>
 
-                      <Meta avatar={""} title={item.amount} description={item.time} ellipsis={true}/>
+                      <Flex vertical style={{textAlign: "end"}}>
+                        <Meta avatar={""} title={item.amount}/>
+                        <p>{item.time}</p>
+                      </Flex>
                     </Flex>
                   </Flex>
                 </Card>

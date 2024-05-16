@@ -5,10 +5,11 @@ const Statistics = () => {
   return (
    <div className='statistics'>
      <Card>
-            <Typography.Title level={2}>Statistics</Typography.Title>
+            <Typography.Title level={2}>Stats</Typography.Title>
             <Card>
               <Flex justify='center'>
-              <Empty />
+              {/* <Empty /> */}
+              this weeks Goal : 3000ksh
               </Flex>
             </Card>
           </Card>

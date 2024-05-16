@@ -54,7 +54,7 @@ export const transactionsDummy = [
       category: 'Accommodation',
       description: 'Hotel Stay for Business Trip',
       amount: '3000ksh',
-      time: 'Check-in: 2:00PM, Check-out: 11:00AM'
+      time: '12:45pm'
     },
     {
         id : 8,

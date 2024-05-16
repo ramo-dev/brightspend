@@ -51,23 +51,16 @@ const Category = ({openCategory}) => {
           className="CategoryPopPup"
         >
 
-          <form action="" onSubmit={addCategory}>
-            <Flex vertical gap="1rem" justify="flex-end">
-              <Segmented
-                options={["Expense", "Income", "Investment"]}
-                block
-                className="SelectCategory"
-                default={true}
-              />
+          <form action="" onSubmit={addCategory} style={{width : "300px"}}>
+            <Flex vertical gap="1rem" justify="flex-end" >
+              
+
               <Flex>
                 
-                <Tooltip title="Add Category" >
-                <PlusOutlined className="AddCategoryBtn" />
-                
-                </Tooltip>
+               
               </Flex>
               <Input
-                placeholder="Transaction Description"
+                placeholder="Category Name"
                 variant="filled"
                 suffix={<ProfileOutlined />}
                 className="description"
