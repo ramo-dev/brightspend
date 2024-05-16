@@ -7,6 +7,7 @@ import "./LoginStyles.css";
 import { Link, useNavigate } from "react-router-dom";
 import { account } from "../../firebase/Config";
 import { toast } from "sonner";
+import signInWithGoogle from "../../utils/SignInWithGoogle";
 
 const LoginComponent = () => {
   const [password, setPassword] = useState("");
@@ -46,6 +47,8 @@ const LoginComponent = () => {
     event.target.parentElement.style.borderColor = "var(--secondary)";
   }
 
+
+
   return (
     <section className="LoginComponent" direction="row">
       <BackButton />
@@ -76,8 +79,10 @@ const LoginComponent = () => {
             {logginIn ? <LoadingOutlined /> : "Login"}
           </button>
           <small style={{ alignSelf: "center", color: "grey" }}>or</small>
-          <button
-            onClick={() => alert("you Clicked")}
+         
+        </form>
+        <button
+            onClick={signInWithGoogle}
             className="btn GoogleRegister"
           >
             {isLoading ? (
@@ -89,7 +94,6 @@ const LoginComponent = () => {
               </>
             )}
           </button>
-        </form>
         <small className="linkAccReg">
           Dont have an Account? <Link to="/register">Register</Link>
         </small>

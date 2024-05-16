@@ -1,25 +1,28 @@
-import {LoadingOutlined,UserOutlined, LockOutlined, MailOutlined} from "@ant-design/icons"
+import {
+  LoadingOutlined,
+  UserOutlined,
+  LockOutlined,
+  MailOutlined,
+} from "@ant-design/icons";
 // import RegisterImage from "../../assets/design/stikazwallpaperReg.jpg";
 // import StikazLogo from "../../assets/design/Logo/png/logo-no-background.png";
-import GoogleLogo from "../../assets/googleLogo.png"
+import GoogleLogo from "../../assets/googleLogo.png";
 import "./RegisterStyles.css";
 import { Link } from "react-router-dom";
-import {  useState } from "react";
-import {Toaster, toast} from "sonner";
+import { useState } from "react";
+import { Toaster, toast } from "sonner";
 import BackButton from "../Ui/Back";
 import { account } from "../../firebase/Config";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-
+import signInWithGoogle from "../../utils/SignInWithGoogle";
 
 const RegisterComponent = () => {
-
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [username, setName] = useState("");
   const [confPass, setConfPass] = useState("");
   const [match, setMatch] = useState(true); // Initially assuming passwords match
   const [isLoading, setIsLoading] = useState(null);
- 
 
   // Function to Register User using their Email and Password
   async function RegisterWithEmailAndPass() {
@@ -38,48 +41,47 @@ const RegisterComponent = () => {
       setIsLoading(false);
     }
   }
-  
 
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
-    if (email.trim() === "" || password.trim() === "" || username.trim() === "") {
+    if (
+      email.trim() === "" ||
+      password.trim() === "" ||
+      username.trim() === ""
+    ) {
       alert("Please fill in the required Fields");
       setIsLoading(false);
       return;
     }
     if (password !== confPass) {
-      
       setMatch(false);
       setIsLoading(false);
       return;
-    }
-    else{
-      RegisterWithEmailAndPass()
+    } else {
+      RegisterWithEmailAndPass();
     }
     // Passwords match, you can proceed with your registration logic here
   }
 
   function handleFocus(event) {
-    event.target.parentElement.style.borderColor = 'var(--primary)';
+    event.target.parentElement.style.borderColor = "var(--primary)";
   }
 
   function handleBlur(event) {
-    event.target.parentElement.style.borderColor = 'var(--secondary)';
+    event.target.parentElement.style.borderColor = "var(--secondary)";
   }
 
   return (
     <section className="RegisterComponent" direction="row">
-      <BackButton/>
-      <Toaster  position="top-right" richColors/>
+      <BackButton />
+      <Toaster position="top-right" richColors />
       {/* <img src={RegisterImage} alt="" className="RegisterWallpaper" /> */}
       <div className="RegisterForm">
-        <Link to="/">
-          {/* <img src={StikazLogo} alt="" /> */}
-        </Link>
-       
+        <Link to="/">{/* <img src={StikazLogo} alt="" /> */}</Link>
+
         <form onSubmit={handleSubmit}>
-        <h2 style={{alignSelf : "start"}}>Register</h2>
+          <h2 style={{ alignSelf: "start" }}>Register</h2>
           <div className="input" onFocus={handleFocus} onBlur={handleBlur}>
             <UserOutlined />
             <input
@@ -98,7 +100,12 @@ const RegisterComponent = () => {
               placeholder="Enter Your Email"
             />
           </div>
-          <div className="input" onFocus={handleFocus} onBlur={handleBlur} style={{ borderColor: !match && "red" }}>
+          <div
+            className="input"
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            style={{ borderColor: !match && "red" }}
+          >
             <LockOutlined />
             <input
               type="password"
@@ -108,7 +115,12 @@ const RegisterComponent = () => {
             />
           </div>
 
-          <div className="input" style={{ borderColor: !match && "red" }} onFocus={handleFocus} onBlur={handleBlur}>
+          <div
+            className="input"
+            style={{ borderColor: !match && "red" }}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+          >
             {!match && <small className="Error">Passwords dont match*</small>}
             <LockOutlined />
             <input
@@ -121,13 +133,28 @@ const RegisterComponent = () => {
               placeholder="Confirm Your Password"
             />
           </div>
-          <button type="submit" className="btn">{isLoading ? <LoadingOutlined /> : "Register"}</button>
-          <small style={{alignSelf : "center", color : "grey"}}>or</small>
-          <button onClick={() => alert("you Clicked")} 
-          
-          className="btn GoogleRegister">{isLoading ? <LoadingOutlined/> : <><img src={GoogleLogo} alt=""/>oogle</>}</button>
+          <button type="submit" className="btn">
+            {isLoading ? <LoadingOutlined /> : "Register"}
+          </button>
+          <small style={{ alignSelf: "center", color: "grey" }}>or</small>
+         
         </form>
-        <small className="linkAccReg">Have an Account? <Link to="/login">Login</Link></small>
+        <button
+            onClick={signInWithGoogle}
+            className="btn GoogleRegister"
+          >
+            {isLoading ? (
+              <LoadingOutlined />
+            ) : (
+              <>
+                <img src={GoogleLogo} alt="" />
+                oogle
+              </>
+            )}
+          </button>
+        <small className="linkAccReg">
+          Have an Account? <Link to="/login">Login</Link>
+        </small>
       </div>
     </section>
   );

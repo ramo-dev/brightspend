@@ -44,4 +44,7 @@
     padding: 0 0.7rem;
     height: 70px;
   }
+  .HomeLogin .btn{
+    padding: 0.35rem 0 1rem 0 !important;
+  }
 }

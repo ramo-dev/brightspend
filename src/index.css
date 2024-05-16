@@ -38,3 +38,12 @@ background-color: var(--background);
     border: 1px solid var(--color);
   }
 }
+
+
+/* SignIn With Google Button */
+.GoogleRegister {
+  display: flex !important;
+  justify-content: center !important; 
+  width: 300px !important;    
+  margin-top: 1rem; 
+}

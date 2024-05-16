@@ -13,17 +13,24 @@ const App = () => {
   const [user, setUser] = useState();
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    // console.log(account)
-    const subsribe = account.onAuthStateChanged((user) => {
+    let authStateChangedTimeout; // Variable to hold the timeout reference
+  
+    const unsubscribe = account.onAuthStateChanged((user) => {
       setUser(user);
+      setLoading(false); // Setting loading to false after setUser has been called
+      clearTimeout(authStateChangedTimeout); // Clearing the timeout if onAuthStateChanged is invoked
     });
-
-    setTimeout(()=>{
-      setLoading(!loading)
-    },4000)
-
-    return () => subsribe();
+  
+    authStateChangedTimeout = setTimeout(() => {
+      setLoading(false);
+    }, 4000);
+  
+    return () => {
+      unsubscribe();
+      clearTimeout(authStateChangedTimeout); // Clear the timeout on cleanup
+    };
   }, []);
+  
   return (
     <BrowserRouter>
       {loading ? <Loader/> 
