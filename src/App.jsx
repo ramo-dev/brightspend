@@ -8,6 +8,7 @@ import Register from "./routes/Register";
 import Dashboard from "./routes/Dashboard";
 import Loader from "./components/Ui/Loader";
 import PageNotFound from "./routes/PageNotFound";
+import ChatComponent from "./components/Chat/ChatComponent";
 
 const App = () => {
   const [user, setUser] = useState();
@@ -40,6 +41,7 @@ const App = () => {
           <Route path="/dashboard" Component={Dashboard} />
           <Route path="/login" Component={Login} />
           <Route path="/register" Component={Register} />
+          <Route path="/dashboard/chat" Component={ChatComponent}/>
           <Route path="*" Component={PageNotFound} />
         </Routes>
       ) : (

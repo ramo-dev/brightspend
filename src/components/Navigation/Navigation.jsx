@@ -67,7 +67,7 @@ const Navbar = () => {
                 Notifications
               </Menu.Item>
               <Menu.Item key="chat" icon={<MessageOutlined />}>
-                Chat
+                <Link to="/dashboard/chat">Chat with Ai</Link>
               </Menu.Item>
 
               <SubMenu key="profile" icon={<UserOutlined />} title="Profile">
