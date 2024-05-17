@@ -137,17 +137,15 @@
 .TransactionBox{
     width: -webkit-fill-available
 }
-.transactionIcon {
-  border-radius: 10px;
-  width: 100%;
-}
-.transactionTitle {
-  font-weight: 600;
-}
 
-.transactionPrice {
+.TodaysTransactions{
+  height: 50vh;
+  overflow-y: scroll;
 }
-
+.YesterdaysTransactions{
+  height: 60vh;
+  overflow-y: scroll;
+}
 
 
 @media screen and (max-width: 1280px) {

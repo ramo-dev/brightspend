@@ -1,4 +1,12 @@
-import { Card, DatePicker, Flex, Input, Segmented, Select, Tooltip } from "antd";
+import {
+  Card,
+  DatePicker,
+  Flex,
+  Input,
+  Segmented,
+  Select,
+  Tooltip,
+} from "antd";
 import "./CategoryStyles.css";
 import {
   CloseOutlined,
@@ -9,16 +17,15 @@ import {
 import { useEffect, useState } from "react";
 import { Toaster, toast } from "sonner";
 import { motion } from "framer-motion";
+import EmojiPicker from "emoji-picker-react";
 
-
-
-
-const Category = ({openCategory}) => {
+const Category = ({ openCategory }) => {
   const [openPopup, setOpenPopup] = useState(false);
   const [loading, setLoading] = useState(false);
   const [addCat, setAddCat] = useState(false);
   const [transLoader, setTransLoader] = useState(false);
-
+  const [emojiPicker, setEmojiPicker] = useState(false);
+  const [emoji, setEmoji] = useState(null);
 
   function addCategory(e) {
     e.preventDefault();
@@ -32,47 +39,63 @@ const Category = ({openCategory}) => {
     return () => clearTimeout(timer);
   }
 
-
   return (
     <motion.div
-    className={`TransacrionContainer`}
-    initial={{ transform: "translateY(500px)" }}
-    animate={{ transform: "translateY(0)" }}
-    transition={{ duration: 0.6 }}
-  >
-        <Card
-          title="New Category"
-          extra={
-            <CloseOutlined
-              onClick={openCategory}
-              className="closeNewTransBtn"
-            />
-          }
-          className="CategoryPopPup"
-        >
-
-          <form action="" onSubmit={addCategory} style={{width : "300px"}}>
-            <Flex vertical gap="1rem" justify="flex-end" >
-              
-
-              <Flex>
-                
-               
-              </Flex>
+      className={`NewCategoryContainer`}
+      initial={{ transform: "translateY(500px)" }}
+      animate={{ transform: "translateY(0)" }}
+      transition={{ duration: 0.6 }}
+    >
+      <Card
+        title="New Category"
+        extra={
+          <CloseOutlined onClick={openCategory} className="closeNewCategoryBtn" />
+        }
+        className="CategoryPopPup"
+      >
+        <form action="" onSubmit={addCategory} style={{ width: "300px" }}>
+          <Flex vertical gap="1rem" justify="flex-end">
+            <Flex>
               <Input
-                placeholder="Category Name"
+                placeholder="Your Category Emoji"
                 variant="filled"
                 suffix={<ProfileOutlined />}
                 className="description"
+                value={emoji}
               />
-              <button className="btn" type="submit">
-                {transLoader ? <LoadingOutlined /> : "New Category"}
-              </button>
+              <span
+                className="AddCategoryBtn EmojiBtn"
+                onClick={() => setEmojiPicker(!emojiPicker)}
+              >
+                {"🍔"}
+              </span>
             </Flex>
-          </form>
-        </Card>
-</motion.div>
-  )
-}
 
-export default Category
+            <motion.div
+              initial={{ transform: openPopup && "translate(-300px)" }}
+              animate={{ transform: "translate(0)" }}
+              transition={{ duration: 0.3 }}
+              className="EmojiPicker"
+            >
+              <Flex>
+                <EmojiPicker
+                  onEmojiClick={(e) => setEmoji(e.emoji)}
+                  skinTonesDisabled
+                  reactions={true}
+                  height={350}
+                  open={emojiPicker}
+                />
+              </Flex>
+            </motion.div>
+
+            <button className="btn" type="submit">
+              {transLoader ? <LoadingOutlined /> : "New Category"}
+            </button>
+          </Flex>
+        </form>
+      </Card>
+    </motion.div>
+  );
+};
+
+export default Category;

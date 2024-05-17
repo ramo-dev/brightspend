@@ -17,7 +17,7 @@ const AllTransactions = () => {
     <Flex>
       <div className="AllTransactions" wrap>
         <Flex vertical gap="1rem">
-          <Card>
+          <Card className="TodaysTransactions">
             <Typography.Title level={2}>Today</Typography.Title>
             <Flex vertical gap="1rem">
               {transactions.map((item) => (
@@ -42,7 +42,7 @@ const AllTransactions = () => {
             </Flex>
           </Card>
 
-          <Card>
+          <Card className="YesterdaysTransactions">
             <Typography.Title level={2}>Yesterday</Typography.Title>
             <Card>
               <Flex justify="center">

@@ -112,6 +112,12 @@ const Transaction = () => {
                     addonAfter={<>{".ksh"}</>}
                     required
                   />
+                   <Input
+                    placeholder="Transaction Description"
+                    variant="filled"
+                    suffix={<ProfileOutlined />}
+                    className="description"
+                  />
                   <Segmented
                     options={["Expense", "Income", "Investment"]}
                     block
@@ -162,12 +168,7 @@ const Transaction = () => {
                       )}
                     </Tooltip>
                   </Flex>
-                  <Input
-                    placeholder="Transaction Description"
-                    variant="filled"
-                    suffix={<ProfileOutlined />}
-                    className="description"
-                  />
+                 
                   <button className="btn" type="submit">
                     {transLoader ? <LoadingOutlined /> : "Add Transaction"}
                   </button>

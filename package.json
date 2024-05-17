@@ -12,6 +12,7 @@
   "dependencies": {
     "@ant-design/icons": "^5.3.7",
     "antd": "^5.17.2",
+    "emoji-picker-react": "^4.9.2",
     "firebase": "^10.12.0",
     "framer-motion": "^11.2.3",
     "moment": "^2.30.1",
