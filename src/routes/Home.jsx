@@ -3,7 +3,11 @@ import SubMenu from "antd/es/menu/SubMenu";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../assets/intelispend-favicon-black.png";
-import { UserOutlined } from "@ant-design/icons";
+import {
+  LogoutOutlined,
+  MessageOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
 import { account } from "../firebase/Config";
 // import Meta from "antd/es/card/Meta";
 import { signOut } from "firebase/auth";
@@ -39,13 +43,24 @@ const Home = () => {
             title="Profile"
             style={{ marginLeft: "auto" }}
           >
-            <Menu.Item key="setting:1"><Link to="/dashboard">My Account</Link></Menu.Item>
-            <Menu.Item key="setting:2"><span onClick={()=> account?.signOut()}>Logout</span></Menu.Item>
+            <Menu.Item key="setting:1" icon={<UserOutlined />}>
+              <Link to="/dashboard">My Account</Link>
+            </Menu.Item>
+            <Menu.Item key="chat" icon={<MessageOutlined />}>
+              <Link to="/dashboard/chat">Chat with Ai</Link>
+            </Menu.Item>
+
+            <Menu.Item key="setting:2" icon={<LogoutOutlined />}>
+              <span onClick={() => account.signOut()}>Logout</span>
+            </Menu.Item>
           </SubMenu>
         ) : (
-          <Link to="/login" className="HomeLogin">
-            <button className="btn ">Login</button>{" "}
-          </Link>
+          <>
+            
+            <Link to="/login" className="HomeLogin">
+              <button className="btn ">Login</button>{" "}
+            </Link>
+          </>
         )}
       </Menu>
 

@@ -1,26 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { Card, Input, Button, Spin, Flex, Empty, Tooltip } from "antd";
-import { LoadingOutlined } from "@ant-design/icons";
+import { CloseOutlined, LoadingOutlined } from "@ant-design/icons";
 import DOMPurify from "dompurify"; // Import DOMPurify for sanitization
 import "./ChatComponent.css";
+import { Link } from "react-router-dom";
 
 const ChatComponent = () => {
   const [myText, setMyText] = useState("");
   const [conversation, setConversation] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [tooltip, showTooltip] = useState(true)
-
-
+  const [tooltip, showTooltip] = useState(true);
 
   useEffect(() => {
     setConversation([]);
-    const timer = setTimeout(()=>{
-        showTooltip(false)
-    },3000)
+    const timer = setTimeout(() => {
+      showTooltip(false);
+    }, 3000);
 
     //    cleanUp
     return () => {
-        clearTimeout(timer);
+      clearTimeout(timer);
     };
   }, []);
 
@@ -66,8 +65,17 @@ const ChatComponent = () => {
 
   return (
     <Flex justify="center">
-      <div  className="chat-card">
-        <h2>BrightSpendAI</h2>
+      <div className="chat-card">
+        <Flex>
+          <Link to="/dashboard">
+            {" "}
+            <Tooltip title="home" open={tooltip}>
+              <CloseOutlined className="closeNewCategoryBtn" />
+            </Tooltip>
+          </Link>
+
+          <h2>BrightSpendAI</h2>
+        </Flex>
         <div className="chat-container">
           <Card className="response-card">
             {conversation.length > 0 ? (
@@ -86,7 +94,10 @@ const ChatComponent = () => {
                 </div>
               ))
             ) : (
-              <Empty description="Send a Chat To Talk to Our Ai" className="EmptyChatbotDesc"/>
+              <Empty
+                description={<div><p>Don't be shy send a Text To Talk</p><p> to BrightSpend Ai</p></div>}
+                className="EmptyChatbotDesc"
+              />
             )}
 
             {loading ? (
@@ -99,12 +110,12 @@ const ChatComponent = () => {
           </Card>
           <form onSubmit={handleSubmit} className="chat-form">
             <Tooltip title="click here to begin chat" open={tooltip}>
-            <Input
-              className="chat-input input"
-              placeholder="Type your message..."
-              value={myText}
-              onChange={handleYourText}
-            />
+              <Input
+                className="chat-input input"
+                placeholder="Type your message..."
+                value={myText}
+                onChange={handleYourText}
+              />
             </Tooltip>
             <Button type="primary" htmlType="submit" className="chat-button">
               Send
@@ -114,7 +125,6 @@ const ChatComponent = () => {
       </div>
     </Flex>
   );
-
 };
 
 export default ChatComponent;
