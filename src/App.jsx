@@ -31,6 +31,28 @@ const App = () => {
       clearTimeout(authStateChangedTimeout); // Clear the timeout on cleanup
     };
   }, []);
+
+  useEffect(()=>{
+    async function wakeUpServer(){
+        try{
+          const res = await fetch("https://brightspendai.onrender.com/wakeUp",
+           {
+            method : "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ hello: "hello world" }),
+           }
+          );
+          const data = await res.text();
+          console.log(data)
+        }catch(err){
+          console.error(err)
+        }
+    }
+    wakeUpServer()
+    return () => {}
+  },[])
   
   return (
     <BrowserRouter>

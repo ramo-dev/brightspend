@@ -27,7 +27,7 @@ const ChatComponent = () => {
   async function getAiResponse(myText = "hello") {
     setLoading(true);
     try {
-      const resp = await fetch("http://localhost:3000/chat", {
+      const resp = await fetch("https://brightspendai.onrender.com/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
