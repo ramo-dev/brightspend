@@ -5,6 +5,7 @@ import {
   Input,
   Segmented,
   Select,
+  Space,
   Tooltip,
 } from "antd";
 import "./CategoryStyles.css";
@@ -26,6 +27,8 @@ const Category = ({ openCategory }) => {
   const [transLoader, setTransLoader] = useState(false);
   const [emojiPicker, setEmojiPicker] = useState(false);
   const [emoji, setEmoji] = useState(null);
+  const [categoryName, setCategoryName] = useState(null);
+  const [newCategory, setNewcategory] = useState([]);
 
   function addCategory(e) {
     e.preventDefault();
@@ -53,19 +56,24 @@ const Category = ({ openCategory }) => {
         }
         className="CategoryPopPup"
       >
+       <Card>
+       <span className="capsule">{emoji}<Space/>{categoryName}</span>
+       </Card>
         <form action="" onSubmit={addCategory} style={{ width: "300px" }}>
+        
           <Flex vertical gap="1rem" justify="flex-end">
             <Flex>
               <Input
-                placeholder="Your Category Emoji"
+                placeholder="Your Category Name"
                 variant="filled"
                 suffix={<ProfileOutlined />}
                 className="description"
-                value={emoji}
+                onChange={e => setCategoryName(e.target.value)}
               />
               <span
                 className="AddCategoryBtn EmojiBtn"
                 onClick={() => setEmojiPicker(!emojiPicker)}
+                
               >
                 {"🍔"}
               </span>
@@ -84,6 +92,7 @@ const Category = ({ openCategory }) => {
                   reactions={true}
                   height={350}
                   open={emojiPicker}
+                  lazyLoadEmojis={true}
                 />
               </Flex>
             </motion.div>

@@ -100,6 +100,7 @@ const Transaction = () => {
               <span className="Cost">{cost}.ksh</span>
 
               <br />
+              
               <form action="" onSubmit={addTransaction}>
                 <Flex vertical gap="1rem" justify="flex-end">
                   <DatePicker className="datePicker" defaultValue={moment.isDate()} />

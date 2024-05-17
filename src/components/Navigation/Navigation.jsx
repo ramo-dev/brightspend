@@ -1,5 +1,10 @@
 import { Menu } from "antd";
-import { UserOutlined, BellOutlined, MessageOutlined, LoadingOutlined } from "@ant-design/icons";
+import {
+  UserOutlined,
+  BellOutlined,
+  MessageOutlined,
+  LoadingOutlined,
+} from "@ant-design/icons";
 import "./NavbarStyles.css";
 import Logo from "../../assets/intelispend-favicon-black.png";
 import { Link, useNavigate } from "react-router-dom";
@@ -17,7 +22,7 @@ const Navbar = () => {
 
   function handleLogOut() {
     setSignIngOut(true);
-    setTimeout( async ()=>{
+    setTimeout(async () => {
       try {
         setLoading(true);
         await account.signOut();
@@ -29,7 +34,7 @@ const Navbar = () => {
         setLoading(false);
         setSignIngOut(true);
       }
-    },3000)
+    }, 3000);
   }
 
   return (
@@ -46,30 +51,35 @@ const Navbar = () => {
           {/* <Menu.Item key="mail" icon={<MailOutlined />} style={{ marginLeft: 'auto' }}>
             Settings
           </Menu.Item> */}
-          {signingOut ? <Menu.Item key="chat" icon={ <LoadingOutlined/>} style={{ marginLeft: "auto" }}></Menu.Item> :
-          <>
-          <Menu.Item
-            key="notification"
-            icon={<BellOutlined />}
-            style={{ marginLeft: "auto" }}
-          >
-            Notifications
-          </Menu.Item>
-          <Menu.Item key="chat" icon={<MessageOutlined />}>
-            Chat
-          </Menu.Item>
-          
-         
-           
-          <SubMenu key="profile" icon={<UserOutlined />} title="Profile">
-          <Menu.Item key="setting:1">My Account</Menu.Item>
-          <Menu.Item key="setting:2">
-            <Link onClick={handleLogOut} className="LogoutNav">{"Logout"}</Link>
-          </Menu.Item>
-        </SubMenu>
-          </>
-          }
-          
+          {signingOut ? (
+            <Menu.Item
+              key="chat"
+              icon={<LoadingOutlined />}
+              style={{ marginLeft: "auto" }}
+            ></Menu.Item>
+          ) : (
+            <>
+              <Menu.Item
+                key="notification"
+                icon={<BellOutlined />}
+                style={{ marginLeft: "auto" }}
+              >
+                Notifications
+              </Menu.Item>
+              <Menu.Item key="chat" icon={<MessageOutlined />}>
+                Chat
+              </Menu.Item>
+
+              <SubMenu key="profile" icon={<UserOutlined />} title="Profile">
+                <Menu.Item key="setting:1">My Account</Menu.Item>
+                <Menu.Item key="setting:2">
+                  <Link onClick={handleLogOut} className="LogoutNav">
+                    {"Logout"}
+                  </Link>
+                </Menu.Item>
+              </SubMenu>
+            </>
+          )}
         </Menu>
       )}
     </>

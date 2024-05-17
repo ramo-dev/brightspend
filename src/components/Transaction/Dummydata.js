@@ -3,7 +3,7 @@ export const transactionsDummy = [
       
         id : 1,
       emoji: '🎁',
-      category: 'Category',
+      category: 'Gift',
       description: 'Transaction Description',
       amount: '200ksh',
       time: '10:12AM'
