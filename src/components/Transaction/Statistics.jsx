@@ -9,7 +9,7 @@ const Statistics = () => {
             <Card>
               <Flex justify='center'>
               {/* <Empty /> */}
-              this weeks Goal : 3000ksh
+              this weeks Expenditure : 60000ksh
               </Flex>
             </Card>
           </Card>

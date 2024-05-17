@@ -69,6 +69,7 @@ const Category = ({ openCategory }) => {
                 suffix={<ProfileOutlined />}
                 className="description"
                 onChange={e => setCategoryName(e.target.value)}
+                onClick={() => setEmojiPicker(false)}
               />
               <span
                 className="AddCategoryBtn EmojiBtn"
