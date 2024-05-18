@@ -7,6 +7,9 @@ const Statistics = () => {
     <div className="statistics">
       <Card>
         <Typography.Title level={2}>Stats</Typography.Title>
+        <br />
+        <p>Hello there, here is this weeks expenditure</p>
+        <br />
         <Card>
           <Flex justify="center" gap="1rem">
             <Card hoverable title="Expenditure">
