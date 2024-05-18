@@ -8,7 +8,7 @@ const Statistics = () => {
       <Card>
         <Typography.Title level={2}>Stats</Typography.Title>
         <Card>
-          <Flex justify="space-around">
+          <Flex justify="center" gap="1rem">
             <Card hoverable>
               <Statistic
                 title="Active"
