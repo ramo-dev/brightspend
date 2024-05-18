@@ -9,7 +9,7 @@ const Statistics = () => {
         <Typography.Title level={2}>Stats</Typography.Title>
         <Card>
           <Flex justify="center" gap="1rem">
-            <Card hoverable title="Expenditure rate">
+            <Card hoverable title="Expenditure">
               <Statistic
                 
                 value={11.28}
@@ -22,7 +22,7 @@ const Statistics = () => {
               />
             </Card>
 
-            <Card hoverable title="Income rate">
+            <Card hoverable title="Income">
               <Statistic
                 value={9.3}
                 precision={2}
