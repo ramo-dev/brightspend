@@ -166,8 +166,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-- **Email:** your-email@example.com
-- **Project Link:** https://github.com/yourusername/BrightSpend
+- **Email:** annuar.dev@gmail.com
+- **Project Link:** https://github.com/ramo-dev/brightspend
 
 ---
 
