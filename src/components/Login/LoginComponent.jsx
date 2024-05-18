@@ -16,6 +16,8 @@ const LoginComponent = () => {
   const [logginIn, setLogginIn] = useState(false);
   const navigate = useNavigate();
 
+
+  // function to handle login in with email and password
   async function handleLoginWithEmailandPassword() {
     try {
       await signInWithEmailAndPassword(account, email, password);
@@ -28,6 +30,8 @@ const LoginComponent = () => {
     }
   }
 
+
+  // function to handle submit
   function handleSubmit(e) {
     e.preventDefault();
     setLogginIn(true);
@@ -39,6 +43,9 @@ const LoginComponent = () => {
       handleLoginWithEmailandPassword();
     }
   }
+
+
+  // funtion to handle focus and blur events
   function handleFocus(event) {
     event.target.parentElement.style.borderColor = "var(--primary)";
   }
@@ -46,6 +53,9 @@ const LoginComponent = () => {
   function handleBlur(event) {
     event.target.parentElement.style.borderColor = "var(--secondary)";
   }
+
+
+  // async function to handle signin with google
 
   async function handleSignInWithGoogle() {
     setIsLoading(true);

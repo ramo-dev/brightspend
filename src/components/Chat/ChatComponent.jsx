@@ -11,18 +11,22 @@ const ChatComponent = () => {
   const [loading, setLoading] = useState(false);
   const [tooltip, showTooltip] = useState(true);
 
+
+//   UseEffect to show tooltip
   useEffect(() => {
     setConversation([]);
     const timer = setTimeout(() => {
       showTooltip(false);
     }, 3000);
 
-    //    cleanUp
+    //    cleanUp code after mount
     return () => {
       clearTimeout(timer);
     };
   }, []);
 
+
+//   function to wake up server
   async function getAiResponse(myText = "hello") {
     setLoading(true);
     try {
@@ -50,6 +54,8 @@ const ChatComponent = () => {
     }
   }
 
+//   function to handle submit
+
   function handleSubmit(e) {
     e.preventDefault();
     if (myText.trim() !== "") {
@@ -59,6 +65,8 @@ const ChatComponent = () => {
     }
   }
 
+
+//   function to handle text input
   function handleYourText(e) {
     setMyText(e.target.value);
   }
