@@ -117,17 +117,7 @@ Extensive financial illiteracy and lack of inclusivity.
    ```sh
    git clone https://github.com/ramo-dev/brightspend.git
    ```
-2. Navigate to the project directory:
-   ```sh
-   cd BrightSpend
-   ```
 
-### Frontend
-
-1. Navigate to the frontend directory:
-   ```sh
-   cd frontend
-   ```
 2. Install dependencies:
    ```sh
    npm install
