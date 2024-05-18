@@ -111,7 +111,7 @@ Extensive financial illiteracy and lack of inclusivity.
 - Node.js
 - npm or yarn
 
-### Installation
+### Installation frontEnd
 
 1. Clone the repository:
    ```sh
@@ -136,21 +136,13 @@ Extensive financial illiteracy and lack of inclusivity.
    ```sh
    npm run dev
    ```
+### Installation backend
 
-### Backend
+1. check backend for instructions
+   
+   <a href="https://github.com/ramo-dev/brightspendAi.git">BrightSpend Backend</a>
+ 
 
-1. Navigate to the backend directory:
-   ```sh
-   cd backend
-   ```
-2. Install dependencies:
-   ```sh
-   npm install
-   ```
-3. Start the server:
-   ```sh
-   npm start
-   ```
 
 ## Contributing
 
