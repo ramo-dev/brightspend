@@ -11,6 +11,7 @@ import {
 import { account } from "../firebase/Config";
 // import Meta from "antd/es/card/Meta";
 import { signOut } from "firebase/auth";
+import HomeMockup from "../assets/brightSpendMockup1_so.png";
 
 const Home = () => {
   const [user, setUser] = useState(null);
@@ -56,7 +57,6 @@ const Home = () => {
           </SubMenu>
         ) : (
           <>
-            
             <Link to="/login" className="HomeLogin">
               <button className="btn ">Login</button>{" "}
             </Link>
@@ -65,11 +65,15 @@ const Home = () => {
       </Menu>
 
       <section className="Home">
-        <Flex vertical gap="3rem">
-          <Typography.Title className="HomeTitle">Brightspend</Typography.Title>
+        <Flex justify="space-between" align="center">
+        <Flex vertical gap="2rem" className="HeroHome">
+          <Typography.Title className="HomeTitle">
+            Get
+            Full Control of Your Spendings
+          </Typography.Title>
           <Typography.Text className="HomeText">
-            Optimizing Your Financial <br />
-            Management. With Ai
+            A powerful Tool that can help you stay organized and manage expenses Efficiently.
+            Take control of your expenses and achieve your goal with our new interface
           </Typography.Text>
           {user ? (
             <Link to="/dashboard">
@@ -83,6 +87,8 @@ const Home = () => {
               </button>
             </Link>
           )}
+        </Flex>
+        <img src={HomeMockup} alt="BrightSpendDemo" className="HomeMockup1" />
         </Flex>
       </section>
     </section>

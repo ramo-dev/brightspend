@@ -9,6 +9,7 @@ import Dashboard from "./routes/Dashboard";
 import Loader from "./components/Ui/Loader";
 import PageNotFound from "./routes/PageNotFound";
 import ChatComponent from "./components/Chat/ChatComponent";
+import ComingSoon from "./components/ComingSoon/ComingSoon";
 
 const App = () => {
   const [user, setUser] = useState();
@@ -56,7 +57,7 @@ const App = () => {
   
   return (
     <BrowserRouter>
-      {loading ? <Loader/> 
+      {/* {loading ? <Loader/> 
       : user ? (
         <Routes>
           <Route path="/" Component={Home} />
@@ -73,7 +74,13 @@ const App = () => {
           <Route path="/register" Component={Register} />
           <Route path="*" Component={PageNotFound} />
         </Routes>
-      )}
+      )} */}
+     {loading ? <Loader/> :
+      <Routes>
+      <Route path="/comingsoon" Component={ComingSoon}/>
+      <Route path="*" Component={ComingSoon}/>
+    </Routes> 
+    }
     </BrowserRouter>
   );
 };
